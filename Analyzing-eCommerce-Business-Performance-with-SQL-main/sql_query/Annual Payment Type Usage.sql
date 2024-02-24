@@ -1,10 +1,10 @@
--- 1) Menampilkan jumlah penggunaan masing-masing tipe pembayaran secara all time diurutkan dari yang terfavorit
+-- 1)Displaying the total usage of each payment type over all time, sorted from most to least favored
 SELECT payment_type, COUNT(1) 
 FROM order_payments_dataset
 GROUP BY 1
 ORDER BY 2 DESC
 
--- 2)Menampilkan detail informasi jumlah penggunaan masing-masing tipe pembayaran untuk setiap tahun
+-- 2)Displaying detailed information on the usage of each payment type for each year.
 SELECT
 	payment_type,
 	SUM(CASE WHEN year = 2016 THEN total ELSE 0 END) AS "2016",
