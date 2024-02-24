@@ -1,7 +1,8 @@
--- 1) Membuat database melalui klik kanan Databases > Create > Database.. dengan nama ecommerce_miniproject
+-- 1) Creating a database by right-clicking on Databases > Create > Database.. with the name ecommerce_miniproject.
 
 
--- 2) Membuat tabel menggunakan statement CREATE TABLE dengan mengikuti penamaan kolom di csv dan memastikan tipe datanya sesuai.
+-- 2)  Creating a table using the CREATE TABLE statement, following the column names in the CSV and ensuring that their data types are appropriate.
+
 
 CREATE TABLE customers_dataset (
 	customer_id varchar,
@@ -78,11 +79,11 @@ CREATE TABLE order_reviews_dataset (
 );
 
 
--- 3) Mengimpor file csv ke dalam masing-masing tabel yang telah dibuat dengan klik kanan pada nama tabel > Import/Export Data..
+-- 3) Import the CSV file into each respective table by right-clicking on the table name > Import/Export Data.
 
 
--- 4) Menentukan Primary Key dan Foreign Key untuk membuat relasi antar tabelnya,
---    Sebelumnya, memastikan Primary Key memiliki nilai unik dan tipe data sesuai antara Primary Key dan Foreign Key pada dataset.
+-- 4) Determining the Primary Key and Foreign Key to establish a relationship between the tables,
+-- Beforehand, ensuring the Primary Key has unique values and the data type matches between the Primary Key and Foreign Key in the dataset.
 
 -- PRIMARY KEY
 ALTER TABLE customers_dataset ADD CONSTRAINT customers_dataset_pkey ADD PRIMARY KEY(customer_id);
@@ -98,4 +99,4 @@ ALTER TABLE order_items_dataset ADD FOREIGN KEY (order_id) REFERENCES orders_dat
 ALTER TABLE order_items_dataset ADD FOREIGN KEY (product_id) REFERENCES product_dataset;
 ALTER TABLE order_items_dataset ADD FOREIGN KEY (seller_id) REFERENCES sellers_dataset;
 
--- 5) Membuat ERD dengan cara klik kanan pada database ecommerce_miniproject > Gererate ERD..
+-- 5)Create an Entity-Relationship Diagram (ERD) by right-clicking on the ecommerce_miniproject database and selecting Generate ERD.
