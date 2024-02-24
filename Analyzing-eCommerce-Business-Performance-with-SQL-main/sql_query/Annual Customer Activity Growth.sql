@@ -1,4 +1,4 @@
---1 Menampilkan rata-rata jumlah customer aktif bulanan (monthly active user) untuk setiap tahun
+--1  Displaying the average monthly active user count for each year.
 
 SELECT year, FLOOR(AVG(customer_total)) AS avg_mau
 FROM (
@@ -15,7 +15,7 @@ GROUP BY 1
 ORDER BY 1
 ;
 
---2 Menampilkan jumlah customer baru pada masing-masing tahun
+--2 Displaying the number of new customers for each year.
 
 SELECT year, COUNT(customer_unique_id) AS total_new_customer
 FROM (
@@ -31,7 +31,7 @@ GROUP BY 1
 ORDER BY 1
 ;
 
---3 Menampilkan jumlah customer repeat order pada masing-masing tahun
+--3  Displaying the number of repeat order customers for each year.
 
 SELECT year, count(customer_unique_id) AS total_customer_repeat
 FROM (
@@ -49,7 +49,7 @@ GROUP BY 1
 ORDER BY 1
 ;
 
---4 Menampilkan rata-rata jumlah order yang dilakukan customer untuk masing-masing tahun
+--4 Displaying the average number of orders made by customers for each year.
 
 SELECT year, ROUND(AVG(freq), 3) AS avg_frequency
 FROM (
@@ -66,7 +66,7 @@ GROUP BY 1
 ORDER BY 1
 ;
 
---5 Menggabungkan ketiga metrik yang telah berhasil ditampilkan menjadi satu tampilan tabel
+--5 Displaying the average number of orders made by customers for each year.
 
 WITH cte_mau AS (
 	SELECT year, FLOOR(AVG(customer_total)) AS avg_mau
