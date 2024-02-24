@@ -1,4 +1,5 @@
---1) Membuat tabel yang berisi informasi pendapatan/revenue perusahaan total untuk masing-masing tahun
+--1) Creating a table containing the total revenue information for the company for each year.
+
 CREATE TABLE total_revenue AS
 	SELECT
 		date_part('year', od.order_purchase_timestamp) AS year,
@@ -10,7 +11,7 @@ CREATE TABLE total_revenue AS
 	GROUP BY 1
 	ORDER BY 1
 
---2) Membuat tabel yang berisi informasi jumlah cancel order total untuk masing-masing tahun
+--2) Creating a table containing the total cancel order information for each year.
 CREATE TABLE canceled_order AS
 	SELECT
 		date_part('year', order_purchase_timestamp) AS year,
@@ -20,7 +21,8 @@ CREATE TABLE canceled_order AS
 	GROUP BY 1
 	ORDER BY 1
 		
---3) Membuat tabel yang berisi nama kategori produk yang memberikan pendapatan total tertinggi untuk masing-masing tahun
+--3) Creating a table containing the names of product categories that generate the highest total revenue for each year.
+
 CREATE TABLE top_product_category AS
 	SELECT 
 		year,
@@ -45,7 +47,7 @@ CREATE TABLE top_product_category AS
 	WHERE ranking = 1
 	
 
---4) Membuat tabel yang berisi nama kategori produk yang memiliki jumlah cancel order terbanyak untuk masing-masing tahun
+--4)Creating a table containing the names of product categories with the highest number of cancel orders for each year.
 CREATE TABLE most_canceled_category AS
 	SELECT 
 		year,
@@ -69,11 +71,11 @@ CREATE TABLE most_canceled_category AS
 		) AS sub
 	WHERE ranking = 1
 	
--- Tambahan - Menghapus anomali data tahun
+-- Addition - Removing data anomalies for each year.
 DELETE FROM top_product_category WHERE year = 2020;
 DELETE FROM most_canceled_category WHERE year = 2020;
 
--- Mnampilkan tabel yang dibutuhkan
+-- Displaying the required table.
 SELECT 
 	tr.year,
 	tr.revenue AS total_revenue,
